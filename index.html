@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#17172E">
+    <title>TaskFlow | Smart Task Manager</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="dashboard">
+
+    <aside class="sidebar">
+        <a class="logo" href="#">
+            <span class="logo-icon">✓</span>
+            <span class="logo-name">TaskFlow</span>
+        </a>
+
+        <p class="sidebar-caption">WORKSPACE</p>
+
+        <nav class="sidebar-nav">
+            <a href="#dashboard" class="nav-link active">⌂ <span>Dashboard</span></a>
+            <a href="#tasks" class="nav-link">▤ <span>My Tasks</span></a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <span class="sidebar-sparkle">✦</span>
+            <p>Small steps.<br>Big progress.</p>
+            <span class="sidebar-note">Make today count.</span>
+        </div>
+
+        <div class="sidebar-footer">TASKFLOW <span>•</span> PERSONAL SPACE</div>
+    </aside>
+
+    <main class="main-content" id="dashboard">
+
+        <header class="topbar">
+            <div>
+                <p class="eyebrow">YOUR WORKSPACE</p>
+                <h1>My Dashboard<span class="title-dot">.</span></h1>
+                <p class="date-label" id="todayLabel"></p>
+            </div>
+
+            <div class="user-profile">
+                <div class="avatar">U</div>
+                <div>
+                    <strong>User</strong>
+                    <span>Personal workspace</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="welcome-section">
+            <div class="welcome-content">
+                <p class="welcome-label">
+                    <span class="welcome-dot"></span>
+                    YOUR DAY, YOUR PACE
+                </p>
+
+                <h2>Let's make today<br><em>count.</em></h2>
+
+                <p class="welcome-text">
+                    A little progress each day adds up to big results.
+                </p>
+
+                <a class="welcome-link" href="#tasks">
+                    View your tasks <span>↗</span>
+                </a>
+            </div>
+
+            <div class="welcome-art" aria-hidden="true">
+                <div class="art-orbit orbit-one"></div>
+                <div class="art-orbit orbit-two"></div>
+                <div class="art-glow"></div>
+                <div class="art-check">✓</div>
+                <span class="art-star star-one">✦</span>
+                <span class="art-star star-two">✧</span>
+                <span class="art-small">FOCUS<br>ON WHAT<br>MATTERS</span>
+            </div>
+        </section>
+
+        <section class="stats-grid">
+
+            <article class="stat-card stat-total">
+                <div class="stat-top">
+                    <span class="stat-icon">▦</span>
+                    <span class="stat-trend">OVERVIEW</span>
+                </div>
+                <p>Total tasks</p>
+                <h3 id="totalTasks">0</h3>
+                <span class="stat-foot">Everything on your list</span>
+            </article>
+
+            <article class="stat-card stat-completed">
+                <div class="stat-top">
+                    <span class="stat-icon">✓</span>
+                    <span class="stat-trend">DONE</span>
+                </div>
+                <p>Completed</p>
+                <h3 id="completedTasks">0</h3>
+                <span class="stat-foot">Things you've finished</span>
+            </article>
+
+            <article class="stat-card stat-pending">
+                <div class="stat-top">
+                    <span class="stat-icon">◷</span>
+                    <span class="stat-trend">IN PROGRESS</span>
+                </div>
+                <p>Pending</p>
+                <h3 id="pendingTasks">0</h3>
+                <span class="stat-foot">Still on your plate</span>
+            </article>
+
+        </section>
+
+        <section class="insights-grid">
+
+            <article class="progress-card">
+                <div class="card-heading">
+                    <div>
+                        <p class="eyebrow">YOUR MOMENTUM</p>
+                        <h2>Progress overview</h2>
+                    </div>
+                    <span class="progress-badge" id="progressBadge">0% complete</span>
+                </div>
+
+                <div class="progress-main">
+                    <div class="progress-track"
+                         role="progressbar"
+                         aria-label="Task completion"
+                         aria-valuemin="0"
+                         aria-valuemax="100"
+                         aria-valuenow="0"
+                         id="progressTrack">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+
+                    <div class="progress-meta">
+                        <span id="progressMessage">Every completed task is a win.</span>
+                        <strong id="progressPercent">0%</strong>
+                    </div>
+                </div>
+            </article>
+
+            <article class="upcoming-card">
+                <div class="card-heading">
+                    <div>
+                        <p class="eyebrow">STAY AHEAD</p>
+                        <h2>Coming up</h2>
+                    </div>
+                    <span class="upcoming-icon">↗</span>
+                </div>
+
+                <div id="upcomingList" class="upcoming-list">
+                    <p class="upcoming-empty">
+                        Your upcoming deadlines will appear here.
+                    </p>
+                </div>
+            </article>
+
+        </section>
+
+        <section class="tasks-section" id="tasks">
+
+            <div class="section-header">
+                <div>
+                    <p class="eyebrow">PLAN WITH PURPOSE</p>
+                    <h2>My tasks</h2>
+                    <p class="section-subtitle">
+                        Keep your priorities clear and your momentum going.
+                    </p>
+                </div>
+
+                <button class="add-task-btn" id="openModalBtn" type="button">
+                    <span>＋</span> Add new task
+                </button>
+            </div>
+
+            <div class="task-toolbar">
+
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="all" type="button">
+                        All tasks <span id="allCount">0</span>
+                    </button>
+
+                    <button class="filter-btn" data-filter="active" type="button">
+                        Active <span id="activeCount">0</span>
+                    </button>
+
+                    <button class="filter-btn" data-filter="completed" type="button">
+                        Completed <span id="completedCount">0</span>
+                    </button>
+                </div>
+
+                <label class="search-box">
+                    <span>⌕</span>
+                    <input type="search" id="searchInput"
+                           placeholder="Search tasks..."
+                           aria-label="Search tasks">
+                    <kbd>/</kbd>
+                </label>
+
+            </div>
+
+            <div class="task-list" id="taskList"></div>
+
+        </section>
+
+        <footer>
+            <span>© 2026 TaskFlow</span>
+            <span>Designed for focus. Built for progress.</span>
+        </footer>
+
+    </main>
+</div>
+
+
+<!-- Add Task Modal -->
+
+<div class="modal-overlay" id="taskModal" aria-hidden="true">
+
+    <section class="modal" role="dialog" aria-modal="true">
+
+        <div class="modal-header">
+            <div>
+                <p class="eyebrow">MAKE IT HAPPEN</p>
+                <h2>Add a new task</h2>
+                <p class="modal-subtitle">Give your next step a name.</p>
+            </div>
+
+            <button class="close-modal" id="closeModalBtn" type="button">
+                ×
+            </button>
+        </div>
+
+        <form id="taskForm" novalidate>
+
+            <div class="form-group">
+                <label for="taskTitle">Task title</label>
+                <input type="text" id="taskTitle"
+                       maxlength="100"
+                       placeholder="e.g. Finish project presentation"
+                       autocomplete="off">
+                <small class="error-message" id="titleError"></small>
+            </div>
+
+            <div class="form-row">
+
+                <div class="form-group">
+                    <label for="taskCategory">Category</label>
+                    <select id="taskCategory">
+                        <option value="">Choose category</option>
+                        <option value="Work">Work</option>
+                        <option value="Personal">Personal</option>
+                        <option value="Study">Study</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <small class="error-message" id="categoryError"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="taskPriority">Priority</label>
+                    <select id="taskPriority">
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                        <option value="Low">Low</option>
+                    </select>
+                    <small class="error-message" id="priorityError"></small>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label for="taskDate">Due date</label>
+                <input type="date" id="taskDate">
+                <small class="error-message" id="dateError"></small>
+            </div>
+
+            <div class="modal-actions">
+                <button type="button" class="cancel-btn" id="cancelBtn">
+                    Cancel
+                </button>
+
+                <button type="submit" class="save-btn">
+                    Create task <span>→</span>
+                </button>
+            </div>
+
+        </form>
+    </section>
+</div>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
