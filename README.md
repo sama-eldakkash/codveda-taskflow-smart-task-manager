@@ -2,9 +2,15 @@
 
 TaskFlow is a responsive and interactive task management web application built using HTML, CSS, and JavaScript.
 
-It helps users organize their daily tasks, track progress, and manage priorities through a clean and modern dashboard.
+It helps users organize daily tasks, track progress, and manage priorities through a clean and modern dashboard.
 
-## Features
+## 🚀 Live Demo
+
+**Try TaskFlow here:**
+
+https://sama-eldakkash.github.io/codveda-taskflow-smart-task-manager/
+
+## ✨ Features
 
 - Add, complete, and delete tasks.
 - Organize tasks by category.
@@ -17,14 +23,14 @@ It helps users organize their daily tasks, track progress, and manage priorities
 - Data persistence using Local Storage.
 - Responsive design for different screen sizes.
 
-## Technologies Used
+## 🛠️ Technologies Used
 
 - HTML5
 - CSS3
 - JavaScript
 - Local Storage
 
-## Project Structure
+## 📁 Project Structure
 
 ```text
 JavaScript-Interactive-Website/
@@ -36,12 +42,12 @@ JavaScript-Interactive-Website/
 └── README.md
 ```
 
-## How to Run
+## 💻 How to Run Locally
 
-1. Clone or download this repository.
+1. Clone this repository.
 2. Open the project folder.
 3. Open `index.html` in your browser.
 
-## Developer
+## 👩‍💻 Internship
 
-Developed as part of the Codveda Technologies Web Development Internship – Level 1, Task 3.
+Developed as part of the **Codveda Technologies Web Development Internship – Level 1, Task 3**.
